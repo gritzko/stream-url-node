@@ -1,14 +1,15 @@
-# Node API adapter for stream-url (TCP)
+# Node API adapters for stream-url (TCP)
 
 [stream-url][su] marries streams and urls. 
 
-This package implements protocol adaptors for all kinds of
+This package implements protocol adapters for all kinds of
 streams Node.js API provides access to.
-[v] TCP, `tcp://address:port`
-[ ] filesystem sockets
-[ ] UDP
-[ ] HTTP
-[ ] stdin/stdout
+
+- [x] TCP, `tcp://address:port`
+- [ ] filesystem sockets
+- [ ] UDP
+- [ ] HTTP
+- [ ] stdin/stdout
 
 API user can start a server or a client connection using an
 ultra-compact universal interface of two methods:
