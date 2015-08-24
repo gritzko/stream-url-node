@@ -1,0 +1,34 @@
+{
+  "name": "stream-url-node",
+  "version": "0.0.1",
+  "homepage": "http://github.com/gritzko/stream-url-node",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gritzko/stream-url-node.git"
+  },
+  "author": {
+    "email": "victor.grishchenko@gmail.com",
+    "name": "Victor Grishchenko"
+  },
+  "email": "swarm.js@gmail.com",
+  "license": "MIT",
+  "files": [
+    "test/*.js",
+    "src/*.js",
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "index.js",
+  "dependencies": {
+      "stream-url": "^0.0.10"
+  },
+  "devDependencies": {
+    "tape": "^4.0.2",
+    "tap-spec": "^4.0.2",
+    "tape-dom": "^0.0.4"
+  },
+  "scripts": {
+    "test": "tape test/*.js | tap-spec"
+  }
+}
