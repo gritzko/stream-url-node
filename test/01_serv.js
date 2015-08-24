@@ -37,7 +37,17 @@ tape ('1.A create echo server', function (t) {
             });
             sock.on('end', function () {
                 t.pass('client stream ends');
+                t.end();
             });
         });
+    });
+});
+
+tape ('1.B listen fails', function (t) {
+    t.plan(2);
+    var server = su.listen('tcp://localhost:1', function on_fail(err, serv) {
+        t.ok(err);
+        t.equal(serv, null);
+        t.end();
     });
 });

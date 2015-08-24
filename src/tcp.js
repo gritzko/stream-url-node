@@ -9,9 +9,16 @@ function tcp_listen (url, options, callback) {
     if (!url.port) {
         throw new Error('please specify port number');
     }
-    server.listen(url.port, url.hostname || '0.0.0.0', function () {
+    server.listen(url.port, url.hostname || '0.0.0.0');
+    function on_listen() {
+        server.removeListener('error', on_error);
         callback(null, server);
-    });
+    }
+    function on_error(err) {
+        callback(err, null);
+    }
+    server.once('listening', on_listen);
+    server.on('error', on_error);
 }
 
 function tcp_connect (url, options, callback) {

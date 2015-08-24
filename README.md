@@ -20,7 +20,7 @@ ultra-compact universal interface of two methods:
     var su = require('stream-url-node');
 
     // start a WebSocket echo server
-    var server = su.listen ('tcp://localhost:1234', function ready() {
+    su.listen ('tcp://localhost:1234', function ready(err, server) {
 
         server.on('connection', function (stream) {
 
@@ -35,7 +35,7 @@ ultra-compact universal interface of two methods:
 
     var su = require('stream-url-ws');
 
-    var stream = su.connect('tcp://localhost:1234', function ready() {
+    su.connect('tcp://localhost:1234', function ready(err, stream) {
 
         stream.on ('data', function log (data) {
             console.log(''+data);
