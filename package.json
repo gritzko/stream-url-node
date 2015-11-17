@@ -21,7 +21,7 @@
   ],
   "main": "index.js",
   "dependencies": {
-      "stream-url": "^0.0.10"
+      "stream-url": "~0.0.10"
   },
   "devDependencies": {
     "tape": "^4.0.2",
