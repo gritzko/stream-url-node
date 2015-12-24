@@ -18,16 +18,27 @@ function tcp_listen (url, options, callback) {
         callback(err, null);
     }
     server.once('listening', on_listen);
-    server.on('error', on_error);
+    server.once('error', on_error);
+    return server;
 }
 
 function tcp_connect (url, options, callback) {
     var stream = new net.Socket(options);
+
+    var on_connect = function () {
+        stream.removeListener('error', on_error);
+        callback(null, stream);
+    };
+    var on_error = function (err) {
+        stream.removeListener('connect', on_connect);
+        callback(err, null);
+    };
+
+    stream.once('connect', on_connect);
+    stream.once('error', on_error);
     stream.connect({
         port: url.port,
         host: url.hostname
-    }, function () {
-        callback(null, stream);
     });
     return stream;
 }
