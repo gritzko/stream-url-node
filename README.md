@@ -22,6 +22,11 @@ ultra-compact universal interface of two methods:
     // start a WebSocket echo server
     su.listen ('tcp://localhost:1234', function ready(err, server) {
 
+        if (err) {
+            console.error(err);
+            return;
+        }
+
         server.on('connection', function (stream) {
 
             stream.on('data', stream.write.bind(stream));
